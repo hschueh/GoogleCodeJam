@@ -61,8 +61,8 @@ public class StableNeighbors extends Main.Template {
     }
 
     private int selectColor() {
-        int max = 0;
-        int selection = -1;
+        int max = checkAvailability(firstColor)?windowSameColorSum(firstColor):0;
+        int selection = checkAvailability(firstColor)?firstColor:-1;
         for(int i = 0; i < 6; ++i){
             int currentColor = modSix(firstColor - 1 + i);
             if(windowSameColorSum(currentColor) > max && unicorns.get(currentColor) > 0 && checkAvailability(currentColor)){
